@@ -1,3 +1,6 @@
+/**
+ * Aqui corre la aplicacion y se inicializa en el puerto X000
+ */
 const express = require('express');
 
 const app = express();
@@ -11,6 +14,6 @@ app.use(express.urlencoded({extended: false}));
 // # Definimos RUTAS aqui
 app.use(require('./routes/index'))
 
-app.listen(4000);
+app.listen(3000);
 
-console.log("Escuchando en uerto 4000");
+console.log("Escuchando en uerto 3000");
