@@ -26,7 +26,16 @@ const createUser = async (req, res) => {
     console.log(req.body);
     if (req.body){
         const { name, email } = req.body;
-        res.send('users created');      // solo devolvera users
+        const response = await pool.query('INSERT INTO users (name, email) VALUES ($1, $2)', [name, email]);
+        // console.log("lla respuesta es ", response);
+
+        // res.send('users created');      // solo devolvera users
+        res.json({
+            message: 'Usuario agregado correctamente',
+            body: {
+                user: {name, email}
+            }
+        });
     }
     else{
         res.send("not posible!!");
